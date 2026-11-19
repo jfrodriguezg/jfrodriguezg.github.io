@@ -1,0 +1,79 @@
+{
+  "mode": "LOCAL_SYNTHETIC",
+  "real_rapyd_api_calls": 0,
+  "sample_results": [
+    {
+      "invoice_id": "INV-00001",
+      "payment_id": "PAY-00001",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00002",
+      "payment_id": "PAY-00002",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00003",
+      "payment_id": "PAY-00003",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00004",
+      "payment_id": "PAY-00004",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00005",
+      "payment_id": "PAY-00005",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00006",
+      "payment_id": "PAY-00006",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00007",
+      "payment_id": "PAY-00007",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00008",
+      "payment_id": "PAY-00008",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00009",
+      "payment_id": "PAY-00009",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00010",
+      "payment_id": "PAY-00010",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00011",
+      "payment_id": "PAY-00011",
+      "status": "settled",
+      "invoice_match": "matched"
+    },
+    {
+      "invoice_id": "INV-00012",
+      "payment_id": "PAY-00012",
+      "status": "settled",
+      "invoice_match": "matched"
+    }
+  ],
+  "total_invoices_checked": 4800
+}

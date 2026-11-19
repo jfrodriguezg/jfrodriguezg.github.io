@@ -1,0 +1,121 @@
+﻿supplier_id,industry_segment,annual_purchase_value_cop,annual_payment_count,average_ticket_cop,potential_payment_rail,data_status
+SUP-001,Foods and beverages,100217486,20,5010874.3,Needs discovery,SYNTHETIC
+SUP-002,Packaging,54284472,11,4934952.0,Needs discovery,SYNTHETIC
+SUP-003,Transport and logistics,187907786,38,4944941.74,Needs discovery,SYNTHETIC
+SUP-004,Maintenance,171204872,34,5035437.41,Needs discovery,SYNTHETIC
+SUP-005,General supplies,160765550,32,5023923.44,Needs discovery,SYNTHETIC
+SUP-006,Foods and beverages,114832536,23,4992718.96,Needs discovery,SYNTHETIC
+SUP-007,Packaging,96041757,19,5054829.32,Needs discovery,SYNTHETIC
+SUP-008,Transport and logistics,331970422,66,5029854.88,Needs discovery,SYNTHETIC
+SUP-009,Maintenance,87690300,18,4871683.33,Needs discovery,SYNTHETIC
+SUP-010,General supplies,357024793,71,5028518.21,Needs discovery,SYNTHETIC
+SUP-011,Foods and beverages,267246629,53,5042389.23,Needs discovery,SYNTHETIC
+SUP-012,Packaging,58460200,12,4871683.33,Needs discovery,SYNTHETIC
+SUP-013,Transport and logistics,56372336,11,5124757.82,Needs discovery,SYNTHETIC
+SUP-014,Maintenance,89778164,18,4987675.78,Needs discovery,SYNTHETIC
+SUP-015,General supplies,156589822,31,5051284.58,Needs discovery,SYNTHETIC
+SUP-016,Foods and beverages,164941279,33,4998220.58,Needs discovery,SYNTHETIC
+SUP-017,Packaging,311091779,62,5017609.34,Needs discovery,SYNTHETIC
+SUP-018,Transport and logistics,363288386,73,4976553.23,Needs discovery,SYNTHETIC
+SUP-019,Maintenance,54284472,11,4934952.0,Needs discovery,SYNTHETIC
+SUP-020,General supplies,340321879,68,5004733.51,Needs discovery,SYNTHETIC
+SUP-021,Foods and beverages,146150500,29,5039672.41,Needs discovery,SYNTHETIC
+SUP-022,Packaging,331970422,66,5029854.88,Needs discovery,SYNTHETIC
+SUP-023,Transport and logistics,265158765,53,5002995.57,Needs discovery,SYNTHETIC
+SUP-024,Maintenance,158677686,32,4958677.69,Needs discovery,SYNTHETIC
+SUP-025,General supplies,279773815,56,4995960.98,Needs discovery,SYNTHETIC
+SUP-026,Foods and beverages,354936929,71,4999111.68,Needs discovery,SYNTHETIC
+SUP-027,Packaging,189995650,38,4999885.53,Needs discovery,SYNTHETIC
+SUP-028,Transport and logistics,43845150,9,4871683.33,Needs discovery,SYNTHETIC
+SUP-029,Maintenance,125271857,25,5010874.28,Needs discovery,SYNTHETIC
+SUP-030,General supplies,267246629,53,5042389.23,Needs discovery,SYNTHETIC
+SUP-031,Foods and beverages,223401479,45,4964477.31,Needs discovery,SYNTHETIC
+SUP-032,Packaging,189995650,38,4999885.53,Needs discovery,SYNTHETIC
+SUP-033,Transport and logistics,123183993,25,4927359.72,Needs discovery,SYNTHETIC
+SUP-034,Maintenance,156589822,31,5051284.58,Needs discovery,SYNTHETIC
+SUP-035,General supplies,221313615,44,5029854.89,Needs discovery,SYNTHETIC
+SUP-036,Foods and beverages,96041757,19,5054829.32,Needs discovery,SYNTHETIC
+SUP-037,Packaging,89778164,18,4987675.78,Needs discovery,SYNTHETIC
+SUP-038,Transport and logistics,244280122,49,4985308.61,Needs discovery,SYNTHETIC
+SUP-039,Maintenance,91866029,18,5103668.28,Needs discovery,SYNTHETIC
+SUP-040,General supplies,231752936,46,5038107.3,Needs discovery,SYNTHETIC
+SUP-041,Foods and beverages,225489343,45,5010874.29,Needs discovery,SYNTHETIC
+SUP-042,Packaging,363288386,73,4976553.23,Needs discovery,SYNTHETIC
+SUP-043,Transport and logistics,181644193,36,5045672.03,Needs discovery,SYNTHETIC
+SUP-044,Maintenance,64723793,13,4978753.31,Needs discovery,SYNTHETIC
+SUP-045,General supplies,286037408,57,5018200.14,Needs discovery,SYNTHETIC
+SUP-046,Foods and beverages,327794693,66,4966586.26,Needs discovery,SYNTHETIC
+SUP-047,Packaging,106481079,21,5070527.57,Needs discovery,SYNTHETIC
+SUP-048,Transport and logistics,242192258,48,5045672.04,Needs discovery,SYNTHETIC
+SUP-049,Maintenance,83514572,17,4912621.88,Needs discovery,SYNTHETIC
+SUP-050,General supplies,336146151,67,5017106.73,Needs discovery,SYNTHETIC
+SUP-051,Foods and beverages,198347107,40,4958677.67,Needs discovery,SYNTHETIC
+SUP-052,Packaging,375815572,75,5010874.29,Needs discovery,SYNTHETIC
+SUP-053,Transport and logistics,371639843,74,5022160.04,Needs discovery,SYNTHETIC
+SUP-054,Maintenance,233840800,47,4975336.17,Needs discovery,SYNTHETIC
+SUP-055,General supplies,348673336,70,4981047.66,Needs discovery,SYNTHETIC
+SUP-056,Foods and beverages,144062636,29,4967677.1,Needs discovery,SYNTHETIC
+SUP-057,Packaging,77250979,15,5150065.27,Needs discovery,SYNTHETIC
+SUP-058,Transport and logistics,64723793,13,4978753.31,Needs discovery,SYNTHETIC
+SUP-059,Maintenance,162853415,33,4934951.97,Needs discovery,SYNTHETIC
+SUP-060,General supplies,196259243,39,5032288.28,Needs discovery,SYNTHETIC
+SUP-061,Foods and beverages,83514572,17,4912621.88,Needs discovery,SYNTHETIC
+SUP-062,Packaging,164941279,33,4998220.58,Needs discovery,SYNTHETIC
+SUP-063,Transport and logistics,93953893,19,4944941.74,Needs discovery,SYNTHETIC
+SUP-064,Maintenance,244280122,49,4985308.61,Needs discovery,SYNTHETIC
+SUP-065,General supplies,189995650,38,4999885.53,Needs discovery,SYNTHETIC
+SUP-066,Foods and beverages,283949543,57,4981570.93,Needs discovery,SYNTHETIC
+SUP-067,Packaging,235928665,47,5019758.83,Needs discovery,SYNTHETIC
+SUP-068,Transport and logistics,127359722,25,5094388.88,Needs discovery,SYNTHETIC
+SUP-069,Maintenance,238016529,48,4958677.69,Needs discovery,SYNTHETIC
+SUP-070,General supplies,229665072,46,4992718.96,Needs discovery,SYNTHETIC
+SUP-071,Foods and beverages,152414093,30,5080469.77,Needs discovery,SYNTHETIC
+SUP-072,Packaging,183732057,37,4965731.27,Needs discovery,SYNTHETIC
+SUP-073,Transport and logistics,79338843,16,4958677.69,Needs discovery,SYNTHETIC
+SUP-074,Maintenance,365376251,73,5005154.12,Needs discovery,SYNTHETIC
+SUP-075,General supplies,131535450,26,5059055.77,Needs discovery,SYNTHETIC
+SUP-076,Foods and beverages,325706829,65,5010874.29,Needs discovery,SYNTHETIC
+SUP-077,Packaging,171204872,34,5035437.41,Needs discovery,SYNTHETIC
+SUP-078,Transport and logistics,127359722,25,5094388.88,Needs discovery,SYNTHETIC
+SUP-079,Maintenance,288125272,58,4967677.1,Needs discovery,SYNTHETIC
+SUP-080,General supplies,244280122,49,4985308.61,Needs discovery,SYNTHETIC
+SUP-081,Foods and beverages,185819922,37,5022160.05,Needs discovery,SYNTHETIC
+SUP-082,Packaging,338234015,68,4974029.63,Needs discovery,SYNTHETIC
+SUP-083,Transport and logistics,158677686,32,4958677.69,Needs discovery,SYNTHETIC
+SUP-084,Maintenance,215050022,43,5001163.3,Needs discovery,SYNTHETIC
+SUP-085,General supplies,70987386,14,5070527.57,Needs discovery,SYNTHETIC
+SUP-086,Foods and beverages,162853415,33,4934951.97,Needs discovery,SYNTHETIC
+SUP-087,Packaging,58460200,12,4871683.33,Needs discovery,SYNTHETIC
+SUP-088,Transport and logistics,208786429,42,4971105.45,Needs discovery,SYNTHETIC
+SUP-089,Maintenance,254719443,51,4994498.88,Needs discovery,SYNTHETIC
+SUP-090,General supplies,183732057,37,4965731.27,Needs discovery,SYNTHETIC
+SUP-091,Foods and beverages,75163114,15,5010874.27,Needs discovery,SYNTHETIC
+SUP-092,Packaging,154501957,31,4983934.1,Needs discovery,SYNTHETIC
+SUP-093,Transport and logistics,344497608,69,4992718.96,Needs discovery,SYNTHETIC
+SUP-094,Maintenance,208786429,42,4971105.45,Needs discovery,SYNTHETIC
+SUP-095,General supplies,154501957,31,4983934.1,Needs discovery,SYNTHETIC
+SUP-096,Foods and beverages,306916050,61,5031410.66,Needs discovery,SYNTHETIC
+SUP-097,Packaging,252631579,51,4953560.37,Needs discovery,SYNTHETIC
+SUP-098,Transport and logistics,286037408,57,5018200.14,Needs discovery,SYNTHETIC
+SUP-099,Maintenance,116920400,23,5083495.65,Needs discovery,SYNTHETIC
+SUP-100,General supplies,181644193,36,5045672.03,Needs discovery,SYNTHETIC
+SUP-101,Foods and beverages,114832536,23,4992718.96,Needs discovery,SYNTHETIC
+SUP-102,Packaging,173292736,35,4951221.03,Needs discovery,SYNTHETIC
+SUP-103,Transport and logistics,340321879,68,5004733.51,Needs discovery,SYNTHETIC
+SUP-104,Maintenance,327794693,66,4966586.26,Needs discovery,SYNTHETIC
+SUP-105,General supplies,181644193,36,5045672.03,Needs discovery,SYNTHETIC
+SUP-106,Foods and beverages,352849065,71,4969705.14,Needs discovery,SYNTHETIC
+SUP-107,Packaging,269334493,54,4987675.8,Needs discovery,SYNTHETIC
+SUP-108,Transport and logistics,352849065,71,4969705.14,Needs discovery,SYNTHETIC
+SUP-109,Maintenance,254719443,51,4994498.88,Needs discovery,SYNTHETIC
+SUP-110,General supplies,233840800,47,4975336.17,Needs discovery,SYNTHETIC
+SUP-111,Foods and beverages,158677686,32,4958677.69,Needs discovery,SYNTHETIC
+SUP-112,Packaging,114832536,23,4992718.96,Needs discovery,SYNTHETIC
+SUP-113,Transport and logistics,313179643,63,4971105.44,Needs discovery,SYNTHETIC
+SUP-114,Maintenance,304828186,61,4997183.38,Needs discovery,SYNTHETIC
+SUP-115,General supplies,89778164,18,4987675.78,Needs discovery,SYNTHETIC
+SUP-116,Foods and beverages,66811657,13,5139358.23,Needs discovery,SYNTHETIC
+SUP-117,Packaging,100217486,20,5010874.3,Needs discovery,SYNTHETIC
+SUP-118,Transport and logistics,123183993,25,4927359.72,Needs discovery,SYNTHETIC
+SUP-119,Maintenance,375815572,75,5010874.29,Needs discovery,SYNTHETIC
+SUP-120,General supplies,125271856,24,5219660.67,Needs discovery,SYNTHETIC

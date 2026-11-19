@@ -1,0 +1,50 @@
+{
+  "assumptions": {
+    "annual_volume_cop": 24000000000,
+    "annual_orders": 4800,
+    "suppliers": 120,
+    "eligible_order_share": 0.7,
+    "digital_order_share": 0.28,
+    "note": "event-level adoption by count, workbook adoption by VALUE; these are different illustrative modeling layers"
+  },
+  "observed_synthetic": {
+    "bank_transfer": {
+      "count": 3456,
+      "volume_cop": 17286731113,
+      "approval_rate": 0.9820601851851852,
+      "rejection_rate": 0.01793981481481477,
+      "avg_settlement_days": 2.0,
+      "reconciliation_exception_rate": 0.05686505598114319,
+      "refund_rate_per_approved": 0.0,
+      "chargeback_rate_per_approved": 0.0,
+      "reconciliation_difference_cop": 2880742,
+      "synthetic": true
+    },
+    "integrated_transfer": {
+      "count": 681,
+      "volume_cop": 3378320718,
+      "approval_rate": 0.986784140969163,
+      "rejection_rate": 0.013215859030836996,
+      "avg_settlement_days": 1.0,
+      "reconciliation_exception_rate": 0.017857142857142856,
+      "refund_rate_per_approved": 0.0,
+      "chargeback_rate_per_approved": 0.0,
+      "reconciliation_difference_cop": 174232,
+      "synthetic": true
+    },
+    "virtual_card": {
+      "count": 663,
+      "volume_cop": 3334948169,
+      "approval_rate": 0.9487179487179487,
+      "rejection_rate": 0.05128205128205132,
+      "avg_settlement_days": 2.0,
+      "reconciliation_exception_rate": 0.046104928457869634,
+      "refund_rate_per_approved": 0.009538950715421303,
+      "chargeback_rate_per_approved": 0.006359300476947536,
+      "reconciliation_difference_cop": 442012,
+      "synthetic": true
+    }
+  },
+  "total_payment_orders": 4800,
+  "total_payments_cop": 24000000000
+}

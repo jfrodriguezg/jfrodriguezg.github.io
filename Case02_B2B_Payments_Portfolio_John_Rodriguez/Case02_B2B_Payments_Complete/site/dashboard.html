@@ -1,0 +1,60 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case 02 · Payment Operations Dashboard</title><style>:root{--a:#142c42;--b:#117e79;--c:#c89247;--line:#dbe6e6}*{box-sizing:border-box}body{font-family:Segoe UI,Inter,Arial,sans-serif;margin:0;background:#f2f6f5;color:var(--a)}.bar{background:var(--a);color:white;padding:18px 26px}.bar a{color:white;text-decoration:none}.wrap{max-width:1150px;padding:20px;margin:auto}.pill{font-size:12px;color:#9b603b;background:#fff0e0;border:1px solid #e6c59a;border-radius:20px;padding:5px 10px}.head{display:flex;gap:15px;align-items:center;justify-content:space-between;flex-wrap:wrap}select{padding:9px 12px;border:1px solid #afbfca;border-radius:8px;background:white}h1{font-size:30px;letter-spacing:-1px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:22px 0}.card,.panel{background:white;border:1px solid var(--line);padding:22px;border-radius:14px}.card .value{font-size:27px;font-weight:750}.label{color:#677f8b;font-size:13px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}.barrow{display:grid;grid-template-columns:150px 1fr 62px;align-items:center;gap:8px;margin:12px 0}.track{height:14px;background:#eef1f1;border-radius:16px;overflow:hidden}.fill{height:100%;background:var(--b)}.notes{font-size:13px;color:#637786;line-height:1.55}table{border-collapse:collapse;width:100%}th,td{text-align:left;border-bottom:1px solid #ebf1f1;padding:10px}th{font-size:12px;color:#607a86}@media(max-width:850px){.cards{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}}@media(max-width:480px){.cards{grid-template-columns:1fr}.barrow{grid-template-columns:95px 1fr 50px}}</style></head><body><div class="bar"><a href="case02.html">← Case 02 · John Rodríguez</a></div><main class="wrap"><div class="head"><div><span class="pill">100% SYNTHETIC · NO LIVE TRANSACTIONS</span><h1>Supplier Payment Operations</h1><div class="label">4,800 payment orders · COP 24bn annual cohort · local deterministic simulation</div></div><label>Rail <select id="rail"><option value="all">All rails</option><option value="bank_transfer">Bank transfer</option><option value="integrated_transfer">Integrated transfer</option><option value="virtual_card">Virtual card</option></select></label></div><div class="cards"><div class="card"><div class="label">Payment attempts</div><div class="value" id="attempts">–</div></div><div class="card"><div class="label">Payment volume</div><div class="value" id="volume">–</div></div><div class="card"><div class="label">Approved attempts</div><div class="value" id="approval">–</div></div><div class="card"><div class="label">Reconciliation exceptions / settled</div><div class="value" id="exceptions">–</div></div></div><div class="cols"><div class="panel"><h3>Approval rate by rail</h3><div id="rates"></div><div class="notes">Denominator: all simulated attempts per rail, including rejected.</div></div><div class="panel"><h3>Rail operating metrics</h3><table><tbody id="details"></tbody></table><div class="notes">Refund and chargeback rates: events / approved attempts. Chargebacks apply only to cards.</div></div></div><div class="panel" style="margin-top:18px"><h3>What these data do NOT prove</h3><p class="notes">This dashboard is built from simulated 2026 payment and invoice cohorts. It does not demonstrate genuine supplier adoption, bank processing, Visa/Mastercard card approval, live settlement or Rapyd API functionality. Annual financial economics are in the editable Excel model; this is the event-KPI layer.</p></div></main><script>
+const DATA={
+  "assumptions": {
+    "annual_volume_cop": 24000000000,
+    "annual_orders": 4800,
+    "suppliers": 120,
+    "eligible_order_share": 0.7,
+    "digital_order_share": 0.28,
+    "note": "event-level adoption by count, workbook adoption by VALUE; these are different illustrative modeling layers"
+  },
+  "observed_synthetic": {
+    "bank_transfer": {
+      "count": 3456,
+      "volume_cop": 17286731113,
+      "approval_rate": 0.9820601851851852,
+      "rejection_rate": 0.01793981481481477,
+      "avg_settlement_days": 2.0,
+      "reconciliation_exception_rate": 0.05686505598114319,
+      "refund_rate_per_approved": 0.0,
+      "chargeback_rate_per_approved": 0.0,
+      "reconciliation_difference_cop": 2880742,
+      "synthetic": true
+    },
+    "integrated_transfer": {
+      "count": 681,
+      "volume_cop": 3378320718,
+      "approval_rate": 0.986784140969163,
+      "rejection_rate": 0.013215859030836996,
+      "avg_settlement_days": 1.0,
+      "reconciliation_exception_rate": 0.017857142857142856,
+      "refund_rate_per_approved": 0.0,
+      "chargeback_rate_per_approved": 0.0,
+      "reconciliation_difference_cop": 174232,
+      "synthetic": true
+    },
+    "virtual_card": {
+      "count": 663,
+      "volume_cop": 3334948169,
+      "approval_rate": 0.9487179487179487,
+      "rejection_rate": 0.05128205128205132,
+      "avg_settlement_days": 2.0,
+      "reconciliation_exception_rate": 0.046104928457869634,
+      "refund_rate_per_approved": 0.009538950715421303,
+      "chargeback_rate_per_approved": 0.006359300476947536,
+      "reconciliation_difference_cop": 442012,
+      "synthetic": true
+    }
+  },
+  "total_payment_orders": 4800,
+  "total_payments_cop": 24000000000
+};
+const n=x=>new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(x),pct=x=>(100*x).toFixed(1)+'%', rails=Object.keys(DATA.observed_synthetic);
+const names={bank_transfer:'Bank transfer',integrated_transfer:'Integrated transfer',virtual_card:'Virtual card'};
+function show(){let sel=document.getElementById('rail').value,ks=sel==='all'?rails:[sel],rows=ks.map(k=>DATA.observed_synthetic[k]);let count=rows.reduce((a,b)=>a+b.count,0),vol=rows.reduce((a,b)=>a+b.volume_cop,0),appr=rows.reduce((a,b)=>a+b.approval_rate*b.count,0),settled=appr,ex=rows.reduce((a,b)=>a+b.reconciliation_exception_rate*b.approval_rate*b.count,0);
+ document.getElementById('attempts').textContent=n(count);document.getElementById('volume').textContent='COP '+(vol/1e9).toFixed(2)+'bn';document.getElementById('approval').textContent=pct(appr/count);document.getElementById('exceptions').textContent=pct(ex/settled);
+ document.getElementById('rates').innerHTML=ks.map(k=>`<div class="barrow"><span>${names[k]}</span><div class="track"><div class="fill" style="width:${100*DATA.observed_synthetic[k].approval_rate}%"></div></div><b>${pct(DATA.observed_synthetic[k].approval_rate)}</b></div>`).join('');
+ let avg=rows.reduce((a,b)=>a+b.avg_settlement_days*b.approval_rate*b.count,0)/settled, rej=count-appr, refund=rows.reduce((a,b)=>a+b.refund_rate_per_approved*b.approval_rate*b.count,0),cb=rows.reduce((a,b)=>a+b.chargeback_rate_per_approved*b.approval_rate*b.count,0);
+ document.getElementById('details').innerHTML=[['Rejected attempts',n(rej)],['Avg settlement (calendar days)',avg.toFixed(2)],['Refund / approved attempts',pct(refund/settled)],['Card chargebacks / card approvals',sel==='bank_transfer'||sel==='integrated_transfer'?'N/A':pct(cb/ks.reduce((a,k)=>a+(k==='virtual_card'?DATA.observed_synthetic[k].count*DATA.observed_synthetic[k].approval_rate:0),0)||0)],['Reconciliation difference (COP)',n(rows.reduce((a,b)=>a+b.reconciliation_difference_cop,0))]].map(r=>`<tr><th>${r[0]}</th><td>${r[1]}</td></tr>`).join('');}
+document.getElementById('rail').onchange=show;show();
+</script></body></html>
