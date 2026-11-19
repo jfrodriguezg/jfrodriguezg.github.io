@@ -1,0 +1,70 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Metodología y documentación · Methodology | John Rodríguez</title><meta name="description" content="Caso independiente de pagos B2B a proveedores · John Rodríguez"><style>
+:root{--paper:#f7f8f6;--ink:#18344a;--navy:#10283b;--muted:#617587;--teal:#127a77;--line:#dde4e6;--gold:#cf9760}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 'Segoe UI',Arial,sans-serif}nav{background:var(--navy);color:white;padding:19px max(20px,calc((100% - 1100px)/2));display:flex;gap:20px;justify-content:space-between;flex-wrap:wrap}nav a{color:white;text-decoration:none}nav strong{font-size:17px}main{max-width:1020px;margin:50px auto;padding:0 26px 70px}article{background:white;border:1px solid var(--line);padding:40px 48px;border-radius:9px;box-shadow:0 4px 19px #10283b08}h1,h2,h3{line-height:1.22;letter-spacing:-.6px}h1{font-size:clamp(29px,4.5vw,46px);border-bottom:3px solid var(--gold);padding-bottom:20px}h2{font-size:25px;margin-top:38px;padding-top:8px;border-top:1px solid var(--line)}h3{font-size:19px;margin-top:27px}a{color:var(--teal)}p{margin:13px 0}strong{color:#10283b}table{border-collapse:collapse;margin:25px 0;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}th{background:#eaf1f1}tr:nth-child(even) td{background:#fafcfb}ul,ol{padding-left:25px}li{margin:5px 0}code{background:#edf3f2;padding:2px 5px;white-space:break-spaces;overflow-wrap:anywhere}pre{background:#ecf2f4;overflow:auto;padding:15px}pre code{background:transparent}blockquote{border-left:4px solid var(--gold);padding:7px 19px;background:#f8f6f2}.meta{font-size:13px;color:var(--muted);margin-top:13px}.scroll{overflow-x:auto}@media(max-width:700px){main{margin:22px auto;padding:0 12px 40px}article{padding:22px 18px}nav{padding:15px 20px}}
+</style></head><body><nav><a href="https://jfrodriguezg.github.io/"><strong>John Rodríguez<span style="color:var(--gold)">.</span></strong></a><a href="case02.html">← Volver al Caso 02 / Back to Case 02</a></nav><main><p class="meta">CASE 02 / COLOMBIA / 2026 · Proyecto independiente · Datos sintéticos</p><article><h1>Case 02 — B2B Supplier Payments | John Rodríguez</h1>
+<p><strong>Independent financial and commercial portfolio case · Colombia · 18 November 2026</strong></p>
+<h2>Research question</h2>
+<p>Under what commercial, operational and working-capital conditions do integrated transfers or B2B virtual cards create <strong>shared economic value</strong> for a Colombian distributor, its suppliers and the solution provider?</p>
+<h2>Deliverables</h2>
+<ul>
+<li><code>Case02_Financial_Model_Complete.xlsx</code> — 12 sheets including the original financial economics, sensitivity, KPIs, pilot and decision memo. All pricing and business inputs are hypothetical and editable.</li>
+<li><code>data/synthetic_suppliers.csv</code> — 120 synthetic suppliers with annual volume and order counts.</li>
+<li><code>data/invoices_synthetic.csv</code> — 4,800 synthetic invoices, aggregate COP 24bn.</li>
+<li><code>data/payments_synthetic.csv</code> — one synthetic attempted payment per invoice; rail, status, settlement timing, refund, chargeback, exception flags.</li>
+<li><code>data/payment_events_synthetic.csv</code> — local event history (initiated, authorized/rejected, settled).</li>
+<li><code>data/reconciliation_synthetic.csv</code> — line-level invoice-payment matching.</li>
+<li><code>data/dashboard_summary.json</code> — generated aggregation; reconciles 4,800 orders and COP 24bn.</li>
+<li><code>figures/</code> — original charts created from local synthetic assumptions/data.</li>
+<li><code>site/dashboard.html</code> — interactive browser dashboard; <strong>no external server or network needed</strong>.</li>
+<li><code>site/case02.html</code> — bilingual ES/EN project page consistent with the existing portfolio's narrative style; does not replace the existing portfolio homepage.</li>
+<li><code>docs/EXECUTIVE_REPORT_ES_EN.md</code> — bilingual executive case.</li>
+<li><code>docs/COMMERCIAL_STRATEGY_AND_ECOSYSTEM.md</code> — ecosystem, stage flows, discovery, objections, pilot and alternatives.</li>
+<li><code>docs/LEARNING_GUIDE_ES.md</code> — private learning guide, separated from publishable material.</li>
+<li><code>powerbi/POWER_BI_SETUP.md</code> — Power BI table relationships, visuals and DAX measures.</li>
+<li><code>docs/RAPYD_SANDBOX_GUIDE.md</code> — official docs and limitations; sandbox integration NOT executed.</li>
+<li><code>scripts/build_case.py</code> — deterministic dataset generator (Python standard library; matplotlib only for PNG charts).</li>
+<li><code>scripts/rapyd_local_demo.py</code> — local simulated payment and invoice match only.</li>
+<li><code>docs/CV_AND_LINKEDIN.md</code> — honest professional positioning.</li>
+</ul>
+<h2>Five-minute setup on Windows</h2>
+<ol>
+<li>Extract the ZIP anywhere, for example <code>Downloads\Case02_B2B_Payments_Complete</code>.</li>
+<li>Open <code>Case02_Financial_Model_Complete.xlsx</code> using Excel. Change only illustrative <code>Inputs</code> values initially; open <code>Scenarios</code>, <code>Supplier_Fee_Sensitivity</code> and <code>Decision_Memo</code> to see impact. Enable recalculation in Excel if needed.</li>
+<li>Double-click <code>site\dashboard.html</code> to filter synthetic operational KPIs; double-click <code>site\case02.html</code> to view the bilingual public-facing case.</li>
+<li>Optional reproducibility from Spyder: open <code>scripts\build_case.py</code> and execute F5. It uses relative paths and a deterministic random seed (20261118); synthetic outputs are overwritten reproducibly.</li>
+<li>Optional local test: run <code>scripts\rapyd_local_demo.py</code>. It makes <strong>zero</strong> Rapyd calls and creates a local demonstration JSON.</li>
+</ol>
+<h2>Professional interpretation of the results</h2>
+<ul>
+<li>Base buyer annual result: transfers <strong>−COP 11.02m</strong>, cards <strong>+COP 50.21m</strong> (subject to assumed card rebate and TRUE contractual DPO benefit).</li>
+<li>Base supplier annual result: transfers <strong>+COP 2.87m</strong>, cards <strong>−COP 109.42m</strong> (cards use hypothetical 1.8% acceptance fee).</li>
+<li>Base provider recurring operating result: transfers <strong>−COP 5.58m</strong>, cards <strong>+COP 4.80m</strong>.</li>
+<li>Conclusion: <strong>Do not roll out cards broadly</strong> under those conditions. Segment suppliers and renegotiate acceptance/finance terms; transfer pricing also needs revision. A provider's positive profit cannot compensate a supplier's unaddressed loss automatically.</li>
+</ul>
+<h2>Distinguish two analytical layers</h2>
+<p>The editable Excel financial scenario <strong>models 40% adoption of 70% eligible PAYMENT VALUE</strong> (COP 6.72bn). The simulated payment event dataset instead selects <strong>28% of payment COUNT</strong> for illustrative test events; the actual event-level digital value may differ because tickets vary. They are not meant to reproduce a real implementation or identical cohort economics. Use workbook numbers for value/economic decisions and operational CSVs for dashboard KPI demonstrations. Do not combine the outputs as if they were a measured pilot.</p>
+<h2>Integrating into the current GitHub Pages site safely</h2>
+<ol>
+<li>Create a new folder <code>case02</code> inside <code>jfrodriguezg.github.io</code> repository.</li>
+<li>Upload the <strong>contents</strong> of this package maintaining <code>site/</code>, <code>data/</code>, <code>docs/</code>, <code>figures/</code>, <code>scripts/</code>, <code>powerbi/</code> and the Excel at <code>case02/</code> root.</li>
+<li>Verify <code>https://jfrodriguezg.github.io/case02/site/case02.html</code> and <code>https://jfrodriguezg.github.io/case02/site/dashboard.html</code> <strong>after deployment</strong>. These are expected paths, <strong>not presently confirmed live URLs</strong>.</li>
+<li>Edit the existing homepage only to add a Case 02 link; do NOT overwrite, delete or redesign Case 01. Example addition:</li>
+</ol>
+<pre><code class="language-html">&lt;a href=&quot;case02/site/case02.html&quot;&gt;02 — B2B Supplier Payments: Commercial Viability &amp; Financial Impact&lt;/a&gt;
+</code></pre>
+<ol start="5">
+<li>Preview links on desktop/mobile; commit/push only after user approval. This package does not modify the live GitHub repository.</li>
+</ol>
+<h2>Sources and evidence standards</h2>
+<p>Sources were checked 18 Nov 2026. References are documented in the bilingual report and Rapyd guide. Payment network product descriptions demonstrate conceptual availability, <strong>not market launch or access in Colombia</strong>. No partner agreements, merchant quotes, supplier interviews or active sandbox credentials were used. No card or supplier payout was processed.</p>
+<h2>Known technical limitations</h2>
+<ul>
+<li>Power BI deliverable is an <strong>import-ready starter pack with DAX</strong>, not a <code>.pbix</code>; native Power BI Desktop could not be executed or validated in this environment.</li>
+<li><code>site/dashboard.html</code> is the working interactive dashboard <strong>not Power BI</strong>; its browser metrics are based only on synthetic events.</li>
+<li>Original economic model has financial assumptions editable in <code>Inputs</code>. Recurring benefits should not be equated with NPV; payback is a simple screening estimate.</li>
+<li>Simulated settlement uses calendar days; real banking cutoffs, holidays, disputes and card rules would require integration-specific logic.</li>
+<li>No real Rapyd sandbox call was made. Payments and payouts are different products.</li>
+</ul>
+<h2>Data license</h2>
+<p>Synthetic data and independently authored illustrative material for portfolio demonstration. Source documentation remains subject to its providers' copyright and terms.</p>
+</article><p class="meta">Análisis: John Rodríguez · Los supuestos y datos de este caso son ilustrativos; no representan transacciones reales.</p></main></body></html>

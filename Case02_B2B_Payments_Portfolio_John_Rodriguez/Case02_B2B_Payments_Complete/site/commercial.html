@@ -1,0 +1,52 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Estrategia comercial y ecosistema | John Rodríguez</title><meta name="description" content="Caso independiente de pagos B2B a proveedores · John Rodríguez"><style>
+:root{--paper:#f7f8f6;--ink:#18344a;--navy:#10283b;--muted:#617587;--teal:#127a77;--line:#dde4e6;--gold:#cf9760}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 'Segoe UI',Arial,sans-serif}nav{background:var(--navy);color:white;padding:19px max(20px,calc((100% - 1100px)/2));display:flex;gap:20px;justify-content:space-between;flex-wrap:wrap}nav a{color:white;text-decoration:none}nav strong{font-size:17px}main{max-width:1020px;margin:50px auto;padding:0 26px 70px}article{background:white;border:1px solid var(--line);padding:40px 48px;border-radius:9px;box-shadow:0 4px 19px #10283b08}h1,h2,h3{line-height:1.22;letter-spacing:-.6px}h1{font-size:clamp(29px,4.5vw,46px);border-bottom:3px solid var(--gold);padding-bottom:20px}h2{font-size:25px;margin-top:38px;padding-top:8px;border-top:1px solid var(--line)}h3{font-size:19px;margin-top:27px}a{color:var(--teal)}p{margin:13px 0}strong{color:#10283b}table{border-collapse:collapse;margin:25px 0;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}th{background:#eaf1f1}tr:nth-child(even) td{background:#fafcfb}ul,ol{padding-left:25px}li{margin:5px 0}code{background:#edf3f2;padding:2px 5px;white-space:break-spaces;overflow-wrap:anywhere}pre{background:#ecf2f4;overflow:auto;padding:15px}pre code{background:transparent}blockquote{border-left:4px solid var(--gold);padding:7px 19px;background:#f8f6f2}.meta{font-size:13px;color:var(--muted);margin-top:13px}.scroll{overflow-x:auto}@media(max-width:700px){main{margin:22px auto;padding:0 12px 40px}article{padding:22px 18px}nav{padding:15px 20px}}
+</style></head><body><nav><a href="https://jfrodriguezg.github.io/"><strong>John Rodríguez<span style="color:var(--gold)">.</span></strong></a><a href="case02.html">← Volver al Caso 02 / Back to Case 02</a></nav><main><p class="meta">CASE 02 / COLOMBIA / 2026 · Proyecto independiente · Datos sintéticos</p><article><h1>Case 02 — Ecosistema de pagos y propuesta comercial</h1>
+<p>John Rodríguez · Caso independiente, sintético · 2026-11-18</p>
+<h2>Tres rutas operativas</h2>
+<p><strong>A. Transferencia bancaria actual:</strong> comprador (ERP/tesorería) → banco ordenante → infraestructura bancaria de compensación/liquidación aplicable → banco receptor → proveedor. No se presupone adquirente, red de tarjetas ni contracargo de tarjeta. Conciliación manual con referencias de factura.</p>
+<p><strong>B. Transferencia integrada:</strong> comprador/ERP → proveedor tecnológico (API, archivo seguro u orquestación) → banco ordenante → sistema de pago compatible → banco receptor → proveedor. Se añaden validación de beneficiario, estado de instrucción, idempotencia, exportación de extractos y remesas para conciliación. Bre-B es un sistema relevante en Colombia, pero elegibilidad, límites y modalidades B2B se deben verificar con la entidad participante; no se presupone aceptación universal.</p>
+<p><strong>C. Tarjeta virtual:</strong> comprador/ERP → plataforma B2B → <strong>emisor</strong> (genera credencial / límite) → <strong>proveedor/aceptante</strong> que cobra mediante su <strong>adquirente o PSP</strong> → <strong>procesador</strong> y <strong>red de tarjetas</strong>, conforme al modelo de integración → compensación y liquidación hacia adquirente y proveedor. La red, el emisor y el adquirente tienen funciones económicas y operativas distintas. La tasa cobrada al comercio puede incluir varios componentes; no es ingreso íntegro de Visa/Mastercard ni del prestador de la solución.</p>
+<h2>Estados de una operación de tarjeta (no todas las etapas aplican siempre)</h2>
+<ol>
+<li><strong>Autenticación:</strong> comprobación del pagador/credencial cuando aplica (por ejemplo, 3DS); no es aprobación de fondos.</li>
+<li><strong>Autorización:</strong> el emisor responde si aprueba/deniega la transacción; no equivale a liquidación.</li>
+<li><strong>Captura/presentación:</strong> la operación se envía a procesamiento/compensación conforme a la configuración.</li>
+<li><strong>Compensación:</strong> intercambio de información y cálculo de posiciones entre participantes.</li>
+<li><strong>Liquidación:</strong> movimiento/abono de fondos según calendarios de entidades involucradas.</li>
+<li><strong>Devolución:</strong> devolución total/parcial del importe, según reglas del medio.</li>
+<li><strong>Contracargo/disputa:</strong> procedimiento específico de tarjeta para impugnar determinadas operaciones. <strong>No es equivalente a una reversión bancaria</strong>.</li>
+</ol>
+<p><strong>Riesgo de crédito y capital de trabajo:</strong> una tarjeta virtual no garantiza extensión de DPO; depende de términos con emisor, vendedor y otros participantes. Si el proveedor recibe anticipadamente y el comprador paga más tarde, el desfase se financia por algún actor. Confirming/factoring pueden cubrir un escenario alternativo de liquidez, pero NO son rails de pago.</p>
+<h2>ICP y segmentación comercial</h2>
+<p>Comprador ideal: distribuidora mediana con 100+ proveedores activos, cientos de pagos mensuales, ERP/AP formal, alta carga de conciliación y capacidad de compartir datos operativos. No inferir que todas las empresas colombianas cumplen criterios de tarjeta virtual.</p>
+<p><strong>Segmento 1 — transferencias integradas:</strong> proveedores de bajo margen, no aceptantes de tarjeta, alto volumen de facturas y necesidad de conciliación. Valorar automatización por transacción y reducción de excepciones.</p>
+<p><strong>Segmento 2 — tarjeta virtual opcional:</strong> proveedores con aceptación existente, margen suficiente, beneficio por liquidez/administración cuantificable o condiciones de aceptación negociadas. No imponer una comisión que supere el beneficio neto.</p>
+<p><strong>Segmento 3 — financiación / confirming:</strong> proveedores que prefieren liquidez anticipada y aceptan un descuento explícito por financiación; separar precio del crédito y precio de movimiento de fondos.</p>
+<h2>Preguntas de descubrimiento para el CFO / tesorero</h2>
+<ul>
+<li>¿Cuántas facturas y órdenes se pagan al mes? ¿Cuántas se concilian automáticamente?</li>
+<li>¿Qué sistemas ERP y bancos intervienen? ¿Cuál es el costo real de un error?</li>
+<li>¿Qué proveedores aceptarían tarjeta y bajo qué comisión? ¿Quién negocia la aceptación?</li>
+<li>¿Hay condiciones contractuales para extender el plazo? ¿Quién financia el desfase?</li>
+<li>¿Qué porcentaje del valor y de las órdenes es realmente elegible?</li>
+<li>¿Cuál es el retorno mínimo exigido y el período aceptable de recuperación?</li>
+<li>¿Existen riesgos de duplicidad de pagos, fraude de beneficiario y manipulación de datos?</li>
+</ul>
+<h2>Objeciones y respuestas</h2>
+<ul>
+<li><strong>&quot;La comisión de tarjeta destruye nuestro margen&quot;</strong> → No rebatir con promesas genéricas; demostrar beneficio neto por proveedor y ofrecer transferencia o financiación separada cuando corresponda.</li>
+<li><strong>&quot;Ya tenemos transferencias&quot;</strong> → Comparar costos totales de conciliación, aprobación y control, no solo precio bancario.</li>
+<li><strong>&quot;Quiero 30 días más para pagar&quot;</strong> → Solo modelar si hay financiación contractual y quién asume su precio.</li>
+<li><strong>&quot;Todas las tarjetas liquidan inmediato&quot;</strong> → No; tiempos y liquidación dependen del adquirente, producto, calendario y contratos.</li>
+<li><strong>&quot;El volumen es ingreso del PSP&quot;</strong> → No; calcular exclusivamente ingresos retenidos.</li>
+</ul>
+<h2>Aliados potenciales por rol (sin atribuir acuerdos)</h2>
+<p>Institución emisora; banco transaccional; adquirente o PSP; plataforma ERP/contabilidad; integrador de pagos; proveedores aceptantes. Visa, Mastercard y Rapyd son referencias de ecosistema y documentación, no socios contratados ni prueba de disponibilidad local.</p>
+<h2>Piloto de 90 días y criterios</h2>
+<p><strong>Semanas 1–2:</strong> descubrimiento y costeo con tesorería; 10–15 perfiles de proveedores. Gate: facturas trazables, criterios de elegibilidad y beneficio esperado por participante.
+<strong>Semanas 3–4:</strong> elección y diseño de términos por rail; revisión legal, riesgo, seguridad. Gate: el proveedor no acepta pérdidas netas sin compensación contractual explícita.
+<strong>Semanas 5–6:</strong> simulación local de pagos y conciliación; reconciliar 100% facturas con referencia y analizar fallos. Gate: cero duplicados críticos, contabilidad conciliable.
+<strong>Semanas 7–10:</strong> piloto real solo tras acuerdos con entidades autorizadas y protección de datos. KPI: adopción por proveedor y volumen, aprobación, liquidación, excepciones y costos.
+<strong>Semanas 11–12:</strong> decisión CFO/BDM: ampliar, renegociar o detener. Criterios: beneficio no negativo para participantes aceptantes, margen de contribución positivo, horizonte de repago aceptable y control de riesgo. Los umbrales son criterios propuestos, no resultados observados.</p>
+</article><p class="meta">Análisis: John Rodríguez · Los supuestos y datos de este caso son ilustrativos; no representan transacciones reales.</p></main></body></html>

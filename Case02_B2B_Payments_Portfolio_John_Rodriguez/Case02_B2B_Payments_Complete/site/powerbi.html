@@ -1,0 +1,42 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Preparación de Power BI | John Rodríguez</title><meta name="description" content="Caso independiente de pagos B2B a proveedores · John Rodríguez"><style>
+:root{--paper:#f7f8f6;--ink:#18344a;--navy:#10283b;--muted:#617587;--teal:#127a77;--line:#dde4e6;--gold:#cf9760}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 'Segoe UI',Arial,sans-serif}nav{background:var(--navy);color:white;padding:19px max(20px,calc((100% - 1100px)/2));display:flex;gap:20px;justify-content:space-between;flex-wrap:wrap}nav a{color:white;text-decoration:none}nav strong{font-size:17px}main{max-width:1020px;margin:50px auto;padding:0 26px 70px}article{background:white;border:1px solid var(--line);padding:40px 48px;border-radius:9px;box-shadow:0 4px 19px #10283b08}h1,h2,h3{line-height:1.22;letter-spacing:-.6px}h1{font-size:clamp(29px,4.5vw,46px);border-bottom:3px solid var(--gold);padding-bottom:20px}h2{font-size:25px;margin-top:38px;padding-top:8px;border-top:1px solid var(--line)}h3{font-size:19px;margin-top:27px}a{color:var(--teal)}p{margin:13px 0}strong{color:#10283b}table{border-collapse:collapse;margin:25px 0;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}th{background:#eaf1f1}tr:nth-child(even) td{background:#fafcfb}ul,ol{padding-left:25px}li{margin:5px 0}code{background:#edf3f2;padding:2px 5px;white-space:break-spaces;overflow-wrap:anywhere}pre{background:#ecf2f4;overflow:auto;padding:15px}pre code{background:transparent}blockquote{border-left:4px solid var(--gold);padding:7px 19px;background:#f8f6f2}.meta{font-size:13px;color:var(--muted);margin-top:13px}.scroll{overflow-x:auto}@media(max-width:700px){main{margin:22px auto;padding:0 12px 40px}article{padding:22px 18px}nav{padding:15px 20px}}
+</style></head><body><nav><a href="https://jfrodriguezg.github.io/"><strong>John Rodríguez<span style="color:var(--gold)">.</span></strong></a><a href="case02.html">← Volver al Caso 02 / Back to Case 02</a></nav><main><p class="meta">CASE 02 / COLOMBIA / 2026 · Proyecto independiente · Datos sintéticos</p><article><h1>Power BI — build pack / John Rodríguez</h1>
+<p><strong>Status:</strong> Complete ready-to-import data/model guide. No .pbix binary is included; this pack has not been opened or validated inside Microsoft Power BI Desktop.</p>
+<h2>Import (Home &gt; Get data &gt; Text/CSV)</h2>
+<ol>
+<li><code>../data/invoices_synthetic.csv</code> → table <code>Invoices</code>, type <code>invoice_amount_cop</code> Whole Number; <code>invoice_date</code>, <code>baseline_due_date</code> Date.</li>
+<li><code>../data/payments_synthetic.csv</code> → <code>Payments</code>; type <code>amount_cop</code> Whole Number, <code>reconciliation_difference_cop</code> Whole Number, <code>settlement_days</code> Whole Number; date fields Date.</li>
+<li><code>../data/reconciliation_synthetic.csv</code> → <code>Reconciliation</code>; type amount columns Whole Number.</li>
+<li><code>../data/synthetic_suppliers.csv</code> → <code>Suppliers</code>; type annual_purchase_value_cop Whole Number.</li>
+</ol>
+<h2>Relationships (single filter direction)</h2>
+<ul>
+<li><code>Suppliers[supplier_id]</code> (one) → <code>Invoices[supplier_id]</code> (many)</li>
+<li><code>Invoices[invoice_id]</code> (one) → <code>Payments[invoice_id]</code> (one in this synthetic run)</li>
+<li><code>Invoices[invoice_id]</code> (one) → <code>Reconciliation[invoice_id]</code> (one)
+Keep event history in separate table if needed; payment attempt granularity would be 1:many in a real system.</li>
+</ul>
+<h2>Suggested visuals</h2>
+<p>KPI cards for Total Orders, Approval %, Digital Volume COP, Avg Settlement Days; a clustered column of orders by rail; line chart payment volume by month; bar of reconciliation exceptions by rail; matrix supplier / rail / payment value. Add rail, segment and period slicers.</p>
+<h2>DAX measures (base, explicit denominators)</h2>
+<pre><code class="language-DAX">Total Payment Attempts = COUNTROWS(Payments)
+Approved Attempts = CALCULATE([Total Payment Attempts], Payments[status] = &quot;approved&quot;)
+Rejected Attempts = CALCULATE([Total Payment Attempts], Payments[status] = &quot;rejected&quot;)
+Approval Rate = DIVIDE([Approved Attempts], [Total Payment Attempts])
+Rejection Rate = DIVIDE([Rejected Attempts], [Total Payment Attempts])
+Payment Volume COP = SUM(Payments[amount_cop])
+Digital Volume COP = CALCULATE([Payment Volume COP], Payments[adopted] = 1)
+Settled Payments = CALCULATE([Total Payment Attempts], NOT ISBLANK(Payments[settlement_date]))
+Avg Settlement Days = CALCULATE(AVERAGE(Payments[settlement_days]), Payments[status] = &quot;approved&quot;)
+Matched Settlements = CALCULATE([Total Payment Attempts], Payments[reconciled] = 1, Payments[status] = &quot;approved&quot;)
+Reconciliation Exception Rate = DIVIDE([Settled Payments] - [Matched Settlements], [Settled Payments])
+Refunded Approvals = CALCULATE([Total Payment Attempts], Payments[refund_flag] = 1, Payments[status] = &quot;approved&quot;)
+Refund Rate = DIVIDE([Refunded Approvals], [Approved Attempts])
+Card Approved = CALCULATE([Approved Attempts], Payments[rail] = &quot;virtual_card&quot;)
+Card Chargebacks = CALCULATE([Total Payment Attempts], Payments[rail] = &quot;virtual_card&quot;, Payments[chargeback_flag] = 1)
+Card Chargeback Rate = DIVIDE([Card Chargebacks], [Card Approved])
+Reconciliation Difference COP = SUM(Payments[reconciliation_difference_cop])
+</code></pre>
+<p><strong>Model caveat:</strong> <code>Payments</code> rows represent one simulated order attempt each; not full retry histories. Real model would need unique payment attempts, idempotency key and a separate event-fact table. Synthetic invoice cohort dates are in 2026, while due/settlement dates may extend into 2027.</p>
+</article><p class="meta">Análisis: John Rodríguez · Los supuestos y datos de este caso son ilustrativos; no representan transacciones reales.</p></main></body></html>
